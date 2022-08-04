@@ -3,22 +3,14 @@ version: '3'
 services:
   maven:
     build: maven
-    links:
-      - "tomcat"
     volumes:
-      - type: volume
-        source: mydata
-        target: /app/boxfuse-sample-java-war-hello/target/
+      - maven:/app/boxfuse-sample-java-war-hello/target/
   tomcat:
     image: tomcat:9.0.8-jre8-alpine
-    links:
-      - "maven"
     ports:
       - "8080:8080"
     volumes:
-      - type: volume
-        source: mydata
-        target: /usr/local/tomcat/webapps
+      - maven:/usr/local/tomcat/webapps
 volumes:
-  mydata:
+  maven:
 
