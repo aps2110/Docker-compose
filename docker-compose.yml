@@ -13,4 +13,3 @@ services:
       - maven:/usr/local/tomcat/webapps
 volumes:
   maven:
-
