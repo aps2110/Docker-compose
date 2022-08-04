@@ -3,14 +3,14 @@ version: '3'
 services:
   maven:
     build: maven
-    links:
-      - "tomcat"
     volumes:
-      - ./opt:/app/boxfuse-sample-java-war-hello/target/
+      - maven:/app/boxfuse-sample-java-war-hello/target/
   tomcat:
     image: tomcat:9.0.8-jre8-alpine
     ports:
       - "8080:8080"
     volumes:
-      - ./opt:/usr/local/tomcat/webapps
+      - maven:/usr/local/tomcat/webapps
+volumes:
+  maven:
 
