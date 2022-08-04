@@ -3,4 +3,4 @@ WORKDIR /app
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN mvn -f /app/boxfuse-sample-java-war-hello/pom.xml package
 VOLUME /maven
-RUN cp /app/boxfuse-sample-java-war-hello/target/* /maven
+RUN cp /app/boxfuse-sample-java-war-hello/target/hello-1.0.war /maven
