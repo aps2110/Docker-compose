@@ -11,8 +11,6 @@ services:
         target: /app/boxfuse-sample-java-war-hello/target/
   tomcat:
     image: tomcat:9.0.8-jre8-alpine
-    links:
-      - "maven"
     ports:
       - "8080:8080"
     volumes:
