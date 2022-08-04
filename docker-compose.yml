@@ -6,17 +6,11 @@ services:
     links:
       - "tomcat"
     volumes:
-      - type: volume
-        source: mydata
-        target: /app/boxfuse-sample-java-war-hello/target/
+      - ./opt:/app/boxfuse-sample-java-war-hello/target/
   tomcat:
     image: tomcat:9.0.8-jre8-alpine
     ports:
       - "8080:8080"
     volumes:
-      - type: volume
-        source: mydata
-        target: /usr/local/tomcat/webapps
-volumes:
-  mydata:
+      - ./opt:/usr/local/tomcat/webapps
 
