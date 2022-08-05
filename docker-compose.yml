@@ -1,15 +1,18 @@
 ---
 version: '3'
 services:
-  maven:
+  build:
     build: maven
+    depends_on:
+      - build
+      - prod
     volumes:
-      - maven:/app/boxfuse-sample-java-war-hello/target/
-  tomcat:
+      - mydata:/app/boxfuse-sample-java-war-hello/target/
+  prod:
     image: tomcat:9.0.8-jre8-alpine
     ports:
       - "8080:8080"
     volumes:
-      - maven:/usr/local/tomcat/webapps
+      - mydata:/usr/local/tomcat/webapps
 volumes:
-  maven:
+  mydata:
