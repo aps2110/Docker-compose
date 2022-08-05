@@ -3,9 +3,6 @@ version: '3'
 services:
   dev:
     build: maven
-    depends_on:
-      - dev
-      - prod
     volumes:
       - mydata:/app/boxfuse-sample-java-war-hello/target/
   prod:
