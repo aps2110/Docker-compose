@@ -4,7 +4,7 @@ services:
   dev:
     build: maven
     depends_on:
-      - build
+      - dev
       - prod
     volumes:
       - mydata:/app/boxfuse-sample-java-war-hello/target/
